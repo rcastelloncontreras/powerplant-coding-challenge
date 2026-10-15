@@ -67,14 +67,10 @@ It can be tested from the interactive documentation at `http://localhost:8888/do
 
 
 ## Limitations and next steps
-- **A lot of wind:** wind turbines cannot be partially used, so if they produce more than the load,
-  this case is not covered yet.
-- **When the previous powerplant cannot go down enough:** I decided to go for the cheapest and fastest
-  approach, but this case is pending further study.
-- **Greedy approach:** only the previous powerplant is adjusted, so the solution is not always the cheapest one.
-- **First powerplant exceeding the load:** there is no previous powerplant to adjust, so this case is not handled.
-- **Wind turbine as previous powerplant:** the adjustment could assign only part of its production,
-  but wind turbines must be used entirely.
-- **Load higher than the total available power:** no error is raised.
-- **Input validation:** the payload is not validated; a missing field returns a generic error (500) instead of a clear one (400).
+- **A lot of wind:** wind turbines must be used entirely, so if they alone exceed the load, this case is not covered.
+- **Previous powerplant cannot go down enough:** the simplest option is applied (previous at its maximum, current covers the rest). Pending further study.
+- **Step-by-step approach:** only the previous powerplant is adjusted and other combinations are not explored, so the solution is not always the cheapest.
+- **First powerplant exceeding the load:** there is no previous powerplant to adjust, so this case is not covered.
+- **Wind turbine as previous powerplant:** it could be assigned only part of its production, which is not allowed.
+- **Load higher than the total available power:** no warning is given.
 - **Not included:** CO2 cost, Docker and unit tests.
