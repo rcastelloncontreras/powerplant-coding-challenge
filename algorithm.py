@@ -33,7 +33,6 @@ def calculate_production_plan(payload):
 
 
     ############ SORT BY COST ############
-    # sort by cost (cheapest first): if same cost, bigger pmax_available first
     powerplants.sort(key=lambda powerplant: powerplant['cost'])
 
 
